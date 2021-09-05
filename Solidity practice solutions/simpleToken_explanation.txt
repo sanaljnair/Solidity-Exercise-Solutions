@@ -1,0 +1,23 @@
+It is a sample code for creating a token smart contract without using the standards. Just focusing of the basics. 
+
+1) The smart contract defines a token Owner, who wants to introduce a new token in the market. We assign a token name, a symbol and define the total number of tokens to be intended to be released.
+
+2) A mapping of accounts to account balance is created. which maps each account address to the balance tokens it will hold. 
+
+3) Constructor - smart contract can be used to create multiple tokens names. it defines the parameters you will pass when you deploy the contract ( token name, symbol, and total number). the contract makes the sender address (i.e. who deployed the smart contract) as the owner. It also assigns all the balance by default to the owner. Once deployed you have a new token (state) on the blockchain. 
+
+3) Then you defined functions for interaction with the token state. initially, all tokens are assigned to the owner. so you have functions to: 
+
+- view 'totalSupply' or totalNumberOfTokens 
+- view 'balance a given account. 
+
+- Public transfer function - which will be used to transfer a given number of tokens to a ethereum account. the function first validates if the account has enough balance. if yes, the specified number of tokens are debited from the sender's account and credited to the receiver's account. 
+
+Simply put. 
+1) There is a network with say 10 accounts 0X1 to 0X10. 
+2) Account 0X4 (Owner) creates 1000 new tokens for a new token name 'ABC' 
+3) owner 0X4 could use the transfer function to transfers some tokens to say 0x8 and 0x5.
+4) now these accounts could inturn send some token to others or back to 0X4 (owner) provided they have enough balance. 
+5) others could check what is the total number of tokens in circulation and what is the balance of each one of the 10 accounts at any point in time.
+
+6) There could be another member 0X8 introduce another token using the same contract. 
