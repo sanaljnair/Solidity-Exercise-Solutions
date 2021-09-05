@@ -8,7 +8,7 @@ contract KYC{
 
     // define addmin user
     address admin;
-    uint public noOfBanks;
+    uint private noOfBanks;
     
     //define customer
     struct Customer {
