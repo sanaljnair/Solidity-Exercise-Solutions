@@ -1,0 +1,32 @@
+when a bank creates a KYC request. only then he gets KYC from the customer and then the bank can verify and accordingly upvote or downvote. if we put this check the bank will never be able to upvote a customer for which the bank raised KYC
+
+for other bank (say bank b) what is stopping it from upvoting or downvoting multiple times. 
+
+
+
+to check duplicate voting: 
+*--------------------------------* 
+
+a new struct and new mapping is required.  just that mapping will need the customer coming first so that you can delete all votes for the customer when the customer details are modified
+
+struct BankVote {
+
+string userName;
+
+address bank;
+
+bool vote;   //true means upvote and false means downvote or use enum
+
+}
+
+mapping(string => mapping (address => BankVote)) bankVotes;
+
+
+
+1) now every upvote or downvote will need to be recorded here. 
+
+2) if a bank has upvoted or downvoted a customer once, it should not be allowed to repeat. however, he could change his vote. 
+
+3) also when a customer is modified, all votes for the customer need to be cleaned. 
+
+too late for this to be implemented hence submitting without this. 
